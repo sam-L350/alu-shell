@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $((2#$(echo $WATER | tr 'waetr' '01234') + 2#$(echo $STIR | tr 'tir.' '0123'))) | tr '012345678' 'bestchol'

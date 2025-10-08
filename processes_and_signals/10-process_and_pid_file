@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Creates a PID file and runs an infinite loop, handling signals accordingly
+
+PID_FILE="/var/run/myscript.pid"
+
+# Save PID to file
+echo $$ > "$PID_FILE"
+
+# Cleanup function
+cleanup() {
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+# Signal handlers
+trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "cleanup" SIGQUIT SIGTERM
+
+# Infinite loop
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done

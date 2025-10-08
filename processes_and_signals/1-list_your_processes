@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script displays all running processes for all users with hierarchy
+# This script displays the list of running processes with users
 
-ps -e --forest -o user,start_time,command
+ps -e -o user=
 

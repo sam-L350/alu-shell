@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script lists the content of the current directory
+# and displays only the part of the name after the first dash
+
+for file in *; do
+  # Skip hidden files automatically (* doesn't include .files)
+  name="${file#*-}"
+  echo "$name"
+done

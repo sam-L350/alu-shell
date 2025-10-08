@@ -13,12 +13,17 @@ cleanup() {
 }
 
 # Signal handlers
-trap "echo 'I hate the kill command'" SIGTERM
+term_handler() {
+    echo "I hate the kill command"
+    cleanup
+}
+trap term_handler SIGTERM
 trap "echo 'Y U no love me?!'" SIGINT
-trap "cleanup" SIGQUIT SIGTERM
+trap cleanup SIGQUIT
 
 # Infinite loop
 while true; do
     echo "To infinity and beyond"
     sleep 2
 done
+

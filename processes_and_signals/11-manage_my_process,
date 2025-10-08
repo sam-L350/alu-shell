@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script that writes "I am alive!" to /tmp/my_process every 2 seconds
+
+PID_FILE="/var/run/my_process.pid"
+
+# Save PID
+echo $$ > "$PID_FILE"
+
+# Infinite loop
+while true; do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done
